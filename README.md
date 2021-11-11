@@ -1,6 +1,6 @@
 # clean-code-javascript (클린코드 자바스크립)
 
-#### 클린코드 자바스크립트 강의를 듣고 정리한 내용입니다.
+#### [클린코드 자바스크립트 강의](https://www.udemy.com/course/clean-code-js/)를 듣고 정리한 내용입니다.
 
 목차
 
