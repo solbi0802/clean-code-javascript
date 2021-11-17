@@ -36,3 +36,6 @@
   3. const, let으로 커버가능
   4. IIFE, Module, Closure, 스코프를 나누는 방법으로 처리
   ````
+
+
+2. 타입
