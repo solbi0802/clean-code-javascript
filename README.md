@@ -58,6 +58,72 @@
     var를 사용 하지 않는다.  => let,const 지향
     함수도 호이스팅 된다는 사실을 잊지말자 => 함수 표현식 사용
      ````
+     
+     <hr>
 
 2. 타입
-  - 
+  - 타입 검사 <br>
+    typeof <br>
+     PRIMITIVE vs REFERENCE (object, array, date, function ....) <br>
+      ````
+      function myFunc () {}
+      typeof myFunction  // function
+
+      classs Myclass {}
+      typeof MyClass  // function
+
+      const str = new String('문자열')
+      typeof str  // object
+
+      typeof null  // object (언어적 오류)
+     ````
+     instanceof 연산자 (객체의 프로포타입 체인을 검사)
+     ````
+      function Person(name, age) {
+       this.name = name;
+       this.age= age;
+       }
+      
+      const p = {
+      name : 'sb',
+      address: 25 
+      }  
+      
+      p instanceof Person // true 
+      
+      const sb = new Person('sb', 20)
+    
+      p instanceof Person // false
+
+     ````
+     Array, function, Date 타입 검사
+
+
+     ````
+     const arr = []
+     const func = function() {}
+     const date = new Date()
+
+     arr instanceof Object  // true
+     func instanceof Object // true
+     date instanceof Object // true
+
+     // 최상위에 오브젝트가 있어서 오브젝트 타입으로 여겨짐
+
+     Object.prototype.toString.call('string')    // '[object String]'
+
+    Object.prototype.toString.call(date)    // '[object Date]'
+    
+    ````
+
+    결론 
+    ````
+    1. 자바스크립트는 동적인 타입을 가진 언어여서, 타입 검사가 어렵다.
+    2. 상황에 맞게 타입 검사를 잘 찾아서 하자
+    3. Primitive vs Reference 차이를 이해
+    ````
+
+
+
+    
+
