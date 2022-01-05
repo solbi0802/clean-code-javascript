@@ -144,4 +144,51 @@
    ````
 
     
+   - eqeq 줄이기
+   == : 동등연산자
+   === : 엄격한 동등연산
+
+   '1' == 1 // true
+    1 == true // true
+   '1' === 1  // false
+   1 === true // false
+
+  * eslint eqeqeq 설정해서 실수를 줄이자
+
+
+  - 형 변환 주의하기
+
+  ==  느슨한 검사 => 암묵적인 형 변환
+
+  12 + ' 문자열 ' // '12 문자열'
+
+  !!'문자열 // true
+  !!'' // false
+
+  // 명시적 변환
+  parseInt('9.99', 10); // 9
+  String()
+  Boolean()
+  Number()
+
+  결론
+   ```
+   사용자가 형 변환했을 때는 명시적인 변환 (타입)
+   JS가 하면 암묵적인 변환(타입)
+   따라서, 명시적인 형변환을 활용하자
+   ```
+   
+   - isNaN <br>
+   Number.MAX_SAFE_INTEGER <br>
+   Number.isInteger <br>
+
+   iaNaN(is Not A Number 숫자가 아니다)
+   ````
+   isNaN(123) // false 숫자가 숫자가 아니다 => 숫자가 맞다라는 의미
+   isNaN(123 + '숫자') // true
+   Number.isNaN(123 + '숫자') //  false
+   ````
+ 
+  결론 <
+ ```isNaN은 느슨한 검사이므로, Number.isNaN과 같은 엄격한 검사로 코드를 짜는 것이 좋다.```
 
