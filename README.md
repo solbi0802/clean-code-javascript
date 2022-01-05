@@ -123,7 +123,25 @@
     3. Primitive vs Reference 차이를 이해
     ````
 
+   - undefined & null <br>
+     ```
+     !null //true
+     !!null // false
+     null ==== false // false
+     !null === true // true
+     nul + 123 // 123
+     
+     let var;
+     var // undefined
+     typeof var // undefined (선언했지만 값은 정의되지 않고 할당 x) 
+     undefined + 10 // NaN
+     ```
 
+   결론
+   ````
+   undefined와 null은 값이 없거나(명시적 표현) 정의되지 않은 상태이다.
+   null은 0에 가깝고, object타입이며, undefined는 NaN이며 undefined 타입이다.
+   ````
 
     
 
