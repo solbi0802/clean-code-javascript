@@ -189,6 +189,6 @@
    Number.isNaN(123 + '숫자') //  false
    ````
  
-  결론 <
+  결론 <br>
  ```isNaN은 느슨한 검사이므로, Number.isNaN과 같은 엄격한 검사로 코드를 짜는 것이 좋다.```
 
