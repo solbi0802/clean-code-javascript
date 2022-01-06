@@ -192,3 +192,76 @@
   결론 <br>
  ```isNaN은 느슨한 검사이므로, Number.isNaN과 같은 엄격한 검사로 코드를 짜는 것이 좋다.```
 
+ <hr>
+ 3. 경계
+  - min -max <br>
+   function genRandomNumber(min, max) {
+ return Math.floor(Math.random() * (max - min + 1))  + min; 
+}
+
+// 상수
+
+
+genRandomNumber(MIN_NUMBER, MAX_NUMBER)
+
+
+결론 
+1. 최소, 최대값을 다룬다
+2. 최소, 최대값 포함 여부 결정해야한다 (이상-초과 / 이하-미만)
+3. 혹은 네이밍에 최소값과 최대값 포함 여부를 표현한다.
+
+
+- begin-end  <br>
+
+function reservationDate(beginDate, endDate) {
+ // ...
+}
+
+reservationDate('YYYY-MM-DD', 'YYYY-MM-DD');
+
+
+
+- first-last  <br>
+포함된 양 끝을 의미한다.
+부터 ~ 까지
+
+const students = ['철수', '영희', '기훈'];
+function getStudents(first, last) {
+ ...
+}
+getStudents('철수' , '기훈);
+
+
+dom에서 firstChild, lastChild 개념
+
+- prefix-suffix (접두사,접미사)  <br>
+ ex)
+ javascript setter, getter  <br>
+ react useState, useEffect, useRef, ...와 같은 형태  <br>
+
+ suffix 
+ 파일트리
+ 복수 -> s, 단일 -> s없이 작성
+
+ 
+
+- 매개변수의 순서가 경계다  <br>
+호출하는 함수의 네이밍과 인자의 순서의 연관성을 고려한다.  <br>
+
+function somFunc(someArg, someArg2) {
+
+}
+
+getRandomNumber(1,50);
+getDates('2022-01-01', '2022-01-06');
+
+1.  매개변수를 2개가 넘지 않도록 만든다. 
+2. arguments, rest parameter 고려
+3. 매개변수를 객체에 담아서 넘긴다.
+4. 랩핑 하는 함수 ( 그 함수를 또 호출하는 형태)
+function somFunc(someArg1, someArg2, someArg3, , someArg4) {
+
+}
+function getFunc(someArg1, someArg2) {
+   somFunc(someArg1, someArg2)
+}
