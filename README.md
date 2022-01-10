@@ -257,22 +257,22 @@ getDates('2022-01-01', '2022-01-06');
 2. arguments, rest parameter 고려  <br>
 3. 매개변수를 객체에 담아서 넘긴다.  <br>
 4. 랩핑 하는 함수 ( 그 함수를 또 호출하는 형태)  <br>
-````
-function somFunc(someArg1, someArg2, someArg3, , someArg4) {
-}
-function getFunc(someArg1, someArg2) {
+  ````
+  function somFunc(someArg1, someArg2, someArg3, , someArg4) {
+  }
+  function getFunc(someArg1, someArg2) {
    somFunc(someArg1, someArg2)
-}
-````
+  }
+  ````
 
 <hr/>
 4. 분기
-  - 값식문 <br>
-    ````
+  - 값식문 
+
     1. 함수의 매개변수로는 값, 식만 올 수 있다.
     2. React - JSX 케이스 :  babel을 통해 transformed되면 객체로 변경된다. (if,switch,for문 x)
     3. 문법을 제대로 아는 게 중요!
     4. 고차 함수를 활용해야 한다.
-    ````
+
 
   - 삼항 연산자 다루기 <br>
