@@ -286,3 +286,77 @@ getDates('2022-01-01', '2022-01-06');
      ```
    
  - Truthy & Falsy <br>
+   [Truthy : 참 같은 값](https://developer.mozilla.org/ko/docs/Glossary/Truthy)
+   [Falsy : 거짓 같은 값](https://developer.mozilla.org/ko/docs/Glossary/Falsy)
+   부정 조건을 걸어도 실행이 잘 됨
+   
+ - 단축 평가 (short-circuit evaluation) <br>
+   ```
+   /**
+   * AND
+   */
+   true && true && '도달 O'   // '도달 O'
+   true && true && '도달 X' // false
+   
+   /**
+   * OR
+   */
+   false || false || '도달 O'   // '도달 O'
+   true || true || '도달 X' // true
+   ```
+   예시1)
+      ```
+       function fetchData () {
+        // if (state.data) {
+        //  return state.data;
+        // } else {
+        // return 'Fetching...';
+        // }
+        // return state.data ? state.data : 'Fetching...';
+         return state.data || 'Fetching...';  // 간략하게 표기 가능
+         }
+       ```
+     
+  
+  예시2)
+   ```
+   function favoriteDog(someDog) {
+    // let favoriteDog;
+    // if (someDog) {
+    //     favoriteDog = someDog;
+    // } else {
+    //     favoriteDog = '냐옹';
+    // }
+    return `${(someDog || '냐옹')} 입니다';
+    }
+
+  favoriteDog () //  강아지 이름이 없으면 '냐옹' 출력
+  favoriteDog('치와와') // ${강아지이름} 입니다 출력
+  ```
+   예시3)
+   ```
+   const getActiveUserName = (user, isLogin) => {
+   //   if (isLogin) {
+   //     if (user) {
+   //       if (user.name) {
+   //         return user.name;
+   //       } else {
+   //         return '이름없음';
+   //       }
+   //     }
+   //   }
+
+   if (isLogin && user) {
+    return user.name || '이름없음';
+    }
+  }
+   ```
+  
+ - else if 피하기  <br>
+ - else 피하기 <br>
+ - Early Return <br>
+ - 부정 조건문 지양하기 <br>
+ - Default Case 고려하기 <br>
+ - 명시적인 연산자 사용 지향하기  <br>
+ - Nullish coalescing operator  <br>
+ - 드모르간의 법칙  <br>
