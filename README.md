@@ -353,6 +353,29 @@ getDates('2022-01-01', '2022-01-06');
    ```
   
  - else if 피하기  <br>
+     ```
+      const x = 1;
+      if (x >= 0) {
+      console.log('x는 0과 같거나 크다');
+      } else if (x > 0) {
+      console.log('x는 0보다 크다');
+      }
+      // x는 0과 같거나 크다
+      
+      if (x >= 0) {
+      console.log('x는 0과 같거나 크다');
+      } else {
+      if (x > 0) {
+      console.log('x는 0보다 크다');
+      }
+     }
+     ```
+   결론 
+   ```
+   else if문이 파이프라인(Promise .then().then())으로 흐른 다고 생각 x 
+   많이 늘어 질 경우, switch case로 바꾸자
+   ```
+   
  - else 피하기 <br>
  - Early Return <br>
  - 부정 조건문 지양하기 <br>
