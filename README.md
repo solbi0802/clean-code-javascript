@@ -377,7 +377,69 @@ getDates('2022-01-01', '2022-01-06');
    ```
    
  - else 피하기 <br>
+    ```
+    /**
+    * age가 20 미만일 때 특수 함수 실행
+    */
+
+    function getHelloCustomer(user) {
+     if (user.age < 20) {
+       report(user);
+      } else {
+       return '안녕하세요';  // 20미만 일 떄 if문에서 이미 리턴되어서, else 문을 타지 않음
+      }
+     ```
+    => 수정
+     ```
+     function getHelloCustomer2(user) {
+       if (user.age < 20) {
+        report(user);
+       }
+      return '안녕하세요';
+      }
+     ```
  - Early Return <br>
+     ```
+      function loginService(isLogin, user) {
+       if (!isLogin) {
+        if (checkToken()) {
+         if (!user.nickName) {
+           return registerUser(user);
+          } else {
+           refreshToken();
+           return '로그인 성공';
+         }
+        } else {
+         throw new Error('No Token');
+        }
+      }
+    }
+    ```
+    => 수정
+     ```
+     function loginService(isLogin, user) {
+      //Early Return
+      /**
+       * 함수를 미리 종료
+       * 사고하기 편하다
+      */
+
+       if (isLogin) {
+         return;
+        }
+
+        if (!checkToken()) {
+         throw new Error('No Token');
+        }
+        
+        if (!user.nickName) {
+         registerUser(user);
+        }
+        refreshToken();
+        return '로그인 성공';
+       }
+      ```
+    
  - 부정 조건문 지양하기 <br>
  - Default Case 고려하기 <br>
  - 명시적인 연산자 사용 지향하기  <br>
