@@ -501,6 +501,33 @@ getDates('2022-01-01', '2022-01-06');
      ```
 
  - Nullish coalescing operator  <br>
+   [참고자료](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
+
+   예시1
+   ```
+   function helloWorld(message) {
+     if (!message) {
+      return 'Hello! World';
+     }
+     return 'Hello! ' + (message || 'World');
+    }
+    // message에 undefined일때도 Hello! World 출력 
+    // 0이 와도 똑같이 출력됨
+   ```
+   수정
+   ```
+   function helloWorld(message) {
+     return 'Hello! ' + (message ?? 'World');
+    }
+   ```
+   예시2
+   ```
+   console.log(null || undefined ?? "foo"); // syntaxError 발생 
+   ```
+   수정 
+   ```
+   console.log((null || undefined) ?? "foo"); // foo
+   ```
    
  - 드모르간의 법칙  <br>
    
