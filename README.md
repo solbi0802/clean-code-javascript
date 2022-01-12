@@ -531,3 +531,45 @@ getDates('2022-01-01', '2022-01-06');
    
  - 드모르간의 법칙  <br>
    
+   ```
+    true === not true
+    false === not false
+    
+    if (!(A && B)) {
+    }
+    위 코드는 서로 같음
+    if (!A || !B) {
+    }
+   ```
+
+   ```
+   const isValidUser = true;
+   const isValidToken = false; 
+
+   // if (!(isValidToken && isValidUser)) {
+    // console.log('로그인 실패!');
+   // }
+
+   // 수정
+    if (!isValidToken || !isValidUser) {
+      console.log('로그인 실패!');
+     }
+   ```
+   
+    ```
+   const isValidUser = false;
+   const isValidToken = false; 
+
+   // if (!(isValidToken || isValidUser)) {
+    // console.log('로그인 실패!');
+   // }
+
+   // 수정
+    if (!isValidToken && !isValidUser) {
+      console.log('로그인 실패!');
+     }
+    ```
+    
+    <hr/>
+    
+  5. 배열 <br>
