@@ -442,7 +442,28 @@ getDates('2022-01-01', '2022-01-06');
       로직이 하나의 조건에만 의존적으로 작성이 되어 있을 때 사용!
 
  - 부정 조건문 지양하기 <br>
+   숫자인 지 검사할 때 isNaN을 쓰면 혼동됨
+   ```
+   function isNumber(num) {
+     return !Number.isNaN(num) && typeof num === 'number'
+   }
+   
+   if (isNumber(3)) {
+     console.log('숫자입니다')
+   }
+   ```
+   결론
+   ```
+   1. 생각을 여러 번 해야 할 수 있다.
+   2. 프로그래밍 언어 자체로 if문이 처음부터 오고 true부터 실행시킨다.
+   - 부정 조건 예외
+    1. Early Return
+    2. Form Validation
+    3. 보안 혹은 검사 하는 로직
+   ```
+   
  - Default Case 고려하기 <br>
+   
  - 명시적인 연산자 사용 지향하기  <br>
  - Nullish coalescing operator  <br>
  - 드모르간의 법칙  <br>
