@@ -463,7 +463,44 @@ getDates('2022-01-01', '2022-01-06');
    ```
    
  - Default Case 고려하기 <br>
-   
+     
+      ```
+      function createElement(type, height, width) {
+        const element = document.createElement(type || 'div');
+        element.style.height = height || 100;
+        element.style.width = width || 100;
+        return element;
+       }
+       createElement();
+      ```
+      사용자가 실수할 수 있거나, 개발하면서 빼먹을 수 있는 경우를 대비하여 디폴트값을 꼭 설정하자.
+
  - 명시적인 연산자 사용 지향하기  <br>
+      ```
+      if ((isLogin && token) || user)
+      ``` 
+      
+     괄호를 활용하여 우선 순위 지정
+     
+     ```
+     function decrement(number) {
+       // number --
+       // --number
+       number = number - 1
+     }
+     function increment(number) {
+       // ++number;
+       // number++;
+       number = number + 1
+     }
+     ```
+     결론 
+     ```
+     1. 예측 가능하고 디버깅 하기 쉬운 코드 작성
+     2. 괄호를 활용해서 연산자 우선순위 표기
+     ```
+
  - Nullish coalescing operator  <br>
+   
  - 드모르간의 법칙  <br>
+   
