@@ -683,9 +683,11 @@ getDates('2022-01-01', '2022-01-06');
      function clickGroupButton() {
      const [confirmButton, cancelButton, resetButton] = document.getElementsByTagName('button');
      }
-  
+    
+   구조 분해 할당 사용
      
    - 유사 배열 객체 <br>
+
    - 불변성 <br>
    - for문 배열 고차 함수로 리팩터링 <br>
    - 배열 메서드 체이닝 활용하기 <br>
