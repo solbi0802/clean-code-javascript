@@ -573,3 +573,122 @@ getDates('2022-01-01', '2022-01-06');
     <hr/>
     
   5. 배열 <br>
+
+   - Javascript의 배열은 객체다 <br>
+     ```
+     const arr = [1, 2, 3];
+     
+     arr[3] = 'test';
+     arr['property'] = 'string value';
+     arr['obj'] = {};
+     arr[{}] = [1, 2, 3];
+     arr['func'] = function () {
+       return 'hello';
+     };
+     
+     arr // [1,2,3, 'test', property : 'string value', obj: {}, '[object Object]' : [1, 2, 3], func: [] ]
+     
+     const obj = {
+       arr : [1, 2, 3]
+       3 : 'test',
+       property: 'string value',
+       obj : {},
+       '{}' : [1, 2, 3],
+       func : function () {
+        return 'hello'
+        }
+       } 
+     obj // { 3: 'test', arr: [1, 2, 3], property: 'string value', obj : {}, '{}': [1, 2, 3], func: [: func] } 
+     
+     ```
+     ```
+      const arr = [1, 2, 3];
+      console.log(Array.isArray(arr)); // true
+     ```
+   
+   - Array.length <br>
+    
+     ```
+     const arr = [1, 2, 3];
+     console.log(arr.length); // 3
+     
+     arr.length = 10;
+     console.log(arr.length); 10 
+     console.log(arr); // [1, 2, 3, , , , , , , ]
+     ```
+     
+     ```
+     const arr = [1, 2, 3];
+     arr[3] = 4;
+     console.log(arr.length); // 4
+     arr[9] = 10;
+     console.log(arr); // [1,2,3,4, , , , , , 10 ]
+     console.log(arr.length); // 10
+     ```
+
+     arr.length는 마지막 인덱스를 알려주는 용도
+     
+   - 배열 요소에 접근하기 <br>
+       예시1)
+        ```
+        const array = [1, 2, 3]
+       
+        function operateTime(input, operators, is) {
+          inputs[0].split('').forEach((num} => {
+           cy.get('.digit').contains(num).click();
+          });
+         
+          inputs[1].split('').forEach((num) => {
+           cy.get('.digit').contains(num).click();
+           });
+          } 
+
+         // 수정
+         const array = [1, 2, 3]
+       
+         function operateTime(input, operators, is) {
+           const [firstInput, secondInput] = inputs
+           firstInput].split('').forEach((num} => {
+            cy.get('.digit').contains(num).click();
+           });
+         
+           secondInput.split('').forEach((num) => {
+            cy.get('.digit').contains(num).click();
+            });
+           }
+           
+           // 최종
+           const array = [1, 2, 3]
+       
+           function operateTime(firstInput, secondInput, is) {
+             firstInput].split('').forEach((num} => {
+              cy.get('.digit').contains(num).click();
+           });
+         
+           secondInput.split('').forEach((num) => {
+            cy.get('.digit').contains(num).click();
+            });
+           } 
+           operateTime([1, 2], 1, 2) 
+           ```
+          
+    // 예시2)      
+    function clickGroupButton() {
+     const confirmButton = document.getElementsByTagName('button')[0];
+     const cancelButton = document.getElementsByTagName('button')[1];
+     const resetButton = document.getElementsByTagName('button')[2];
+     }
+     
+    // 수정
+     function clickGroupButton() {
+     const [confirmButton, cancelButton, resetButton] = document.getElementsByTagName('button');
+     }
+  
+     
+   - 유사 배열 객체 <br>
+   - 불변성 <br>
+   - for문 배열 고차 함수로 리팩터링 <br>
+   - 배열 메서드 체이닝 활용하기 <br>
+   - map vs forEach <br>
+   - Continue & Break <br>
+   
