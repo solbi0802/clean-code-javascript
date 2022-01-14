@@ -879,6 +879,8 @@ getDates('2022-01-01', '2022-01-06');
      
      // for in, for of 사용
      ```
+     결론 
+     reduce, map과 같은 배열 고차 함수들은 흐름을 제어하기가 어렵다.
      ![image](https://user-images.githubusercontent.com/26318691/149548180-7269a38e-32f5-492f-897a-4add14fc02cc.png)
 
      
