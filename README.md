@@ -833,6 +833,25 @@ getDates('2022-01-01', '2022-01-06');
       ```
       
    - map vs forEach <br>
+     [forEach](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+     [map](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+     ```
+     const price = ['1000', '2000', '3000'];
+     
+     const newPricesForEach = prices.forEach(function (price) {
+       return price + '원';
+     });
+     
+     const newPricesMap = prices.map((function (price) {
+       return price + '원';
+     });
+     
+     console.log(newPricesForEach); // undefined 
+     console.log(newPricesMap); // [1000원', 2000원', '3000원'] 
+     ```
+     
+     forEach는 배열을 순회하면서 배열 요소마다 또다른 함수를 실행시켜주는 역할  => 요소가 루프될 때마다 함수를 실행
+     map은 원본 배열을 조작하지만, 손상하지 않고 원본 배열을 그대로 두고 새로운 배열 생성
      
    - Continue & Break <br>
    
