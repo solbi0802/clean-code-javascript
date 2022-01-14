@@ -833,8 +833,8 @@ getDates('2022-01-01', '2022-01-06');
       ```
       
    - map vs forEach <br>
-     [forEach](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
-     [map](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+     [forEach](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) <br>
+     [map](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map) <br>
      ```
      const price = ['1000', '2000', '3000'];
      
@@ -850,8 +850,35 @@ getDates('2022-01-01', '2022-01-06');
      console.log(newPricesMap); // [1000원', 2000원', '3000원'] 
      ```
      
-     forEach는 배열을 순회하면서 배열 요소마다 또다른 함수를 실행시켜주는 역할  => 요소가 루프될 때마다 함수를 실행
-     map은 원본 배열을 조작하지만, 손상하지 않고 원본 배열을 그대로 두고 새로운 배열 생성
+     forEach는 배열을 순회하면서 배열 요소마다 또다른 함수를 실행시켜주는 역할  => 요소가 루프될 때마다 함수를 실행 <br>
+     map은 원본 배열을 조작하지만, 손상하지 않고 원본 배열을 그대로 두고 새로운 배열 생성 <br>
      
    - Continue & Break <br>
-   
+     
+     ```
+     const orders = ['first', 'seconde', 'third'];
+     orders.forEach(function(order) {
+      if (order === 'second') {
+        break;
+      }
+      console.log(order); // SyntaxError : break 사용 불가
+     });
+     ```
+     
+     ```
+     const orders = ['first', 'seconde', 'third'];
+     try {
+       orders.forEach(function(order) {
+         if (order === 'second') {
+           throw error
+         }
+         console.log(order); // SyntaxError : break 사용 불가
+     });
+     } catch (e) {
+     }
+     
+     // for in, for of 사용
+     ```
+     ![image](https://user-images.githubusercontent.com/26318691/149548180-7269a38e-32f5-492f-897a-4add14fc02cc.png)
+
+     
