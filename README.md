@@ -687,7 +687,30 @@ getDates('2022-01-01', '2022-01-06');
    구조 분해 할당 사용
      
    - 유사 배열 객체 <br>
-
+     ```
+     const arrayLikeObject = {
+      0 : 'HELLO',
+      1: 'WORLD',
+      length : 2,
+     };
+     
+     const arr = Array.from(arrayLikeObject);
+     
+     console.log(Array.isArray(arrayLikeObject)); // false
+     console.log(Array.isArray(arr)); // true
+     ```
+     
+     ```
+     function generatePriceList() {
+       for (let i = 0; index < arguments.length; index++) {
+        const element = arguments[index];
+        // arguments는 유사배열객체. arguments 값이 없어도 배열처럼 처리 됨
+        console.log(element); // 100, 200, 300, 400, 500, 600
+     }
+     
+     generatePriceList(100, 200, 300, 400, 500, 600);
+     ```
+     
    - 불변성 <br>
    - for문 배열 고차 함수로 리팩터링 <br>
    - 배열 메서드 체이닝 활용하기 <br>
