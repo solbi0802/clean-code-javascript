@@ -879,8 +879,21 @@ getDates('2022-01-01', '2022-01-06');
      
      // for in, for of 사용
      ```
-     결론 
+
      reduce, map과 같은 배열 고차 함수들은 흐름을 제어하기가 어렵다.
      ![image](https://user-images.githubusercontent.com/26318691/149548180-7269a38e-32f5-492f-897a-4add14fc02cc.png)
 
-     
+     <hr/>
+
+ 6. 객체 <br>
+  - Shorthand Properties <br>
+  - Computed Property Name <br>
+  - Lookup Table <br>
+  - Object Destructuring <br>
+  - Object.freeze <br>
+  - Prototype 조작 지양하기 <br>
+  - hasOwnProperty <br>
+  - 직접 접근 지양하기 <br>
+  - Optional Chaining <br>
+  - Extends & Mixin <br>
+ 
