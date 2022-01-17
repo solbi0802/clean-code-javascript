@@ -985,6 +985,7 @@ getDates('2022-01-01', '2022-01-06');
     }
     getUserType('STUDENT'); // 학생
     ```
+    Computed Property Name을 활용하여, 불필요한 분기문을 줄일 수 있음.
     
   - Object Destructuring <br>
   - Object.freeze <br>
