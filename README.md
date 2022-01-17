@@ -887,6 +887,56 @@ getDates('2022-01-01', '2022-01-06');
 
  6. 객체 <br>
   - Shorthand Properties <br>
+    css 예시)
+     ```
+     .before {
+      background-color: #000;
+      background-image : url(images/bg.png);
+      
+      margin-top : 10px;
+      margin-right: 5px;
+      margin-bottom: 10px;
+      margin-left: 5px;
+      }
+     ```
+     ```
+     .before {
+      background:  #000 url(images/bg.png);
+      margin : 10px 5px 10px 5px;
+      }
+     ```
+     자바스크립트 예시) 
+     ```
+     const firstName = 'sb';
+     const lastName = 'shin';
+     
+     const person = {
+      firstName : 'sb',
+      lastName: 'shin',
+      getFullName: function () {
+       return this.firstName + ' ' + this.lastName;
+       }
+      } 
+     ```
+     
+     ```
+     const firstName = 'sb';
+     const lastName = 'shin';
+     
+     const person = {
+      firstName,
+      lastName,
+      getFullName () {
+       return this.firstName + ' ' + this.lastName;
+       }
+      } 
+     ```
+     결론
+     ```
+     Shorthand Properties
+     Concise Method 
+     를 사용할 때 왜 축약해서 쓸 수 있는 지 동작에 대해서 이해하고 사용하자.
+     ```
   - Computed Property Name <br>
   - Lookup Table <br>
   - Object Destructuring <br>
