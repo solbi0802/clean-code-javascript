@@ -938,7 +938,54 @@ getDates('2022-01-01', '2022-01-06');
      를 사용할 때 왜 축약해서 쓸 수 있는 지 동작에 대해서 이해하고 사용하자.
      ```
   - Computed Property Name <br>
+  
+    리덕스 예시)  
+    ```
+    const noop = createAction("INCREMENT'); 
+    
+    const reducer = handleActions(
+    { 
+     [noop]: (state, action) => ({ // noop도 Computed PropertyName에 속함
+      counter: state.counter + action.payload,
+      }),
+     },
+     { counter: 0 },
+    );
+    ```
+    
   - Lookup Table <br>
+    
+    예시)
+    
+    ```
+    function getUserType(type) {
+     
+     if (type === 'ADMIN') {
+      return '관리자';
+     } else if (type === 'INSTRUCTOR') {
+      return '강사';
+     } else if (type === 'STUDENT') {
+       return '수강생';
+     } else {
+       return '해당 없음';
+     }
+    } 
+    ```
+   
+    ```
+    // lookup table 적용 
+    function getUserType(type) {
+    const USER_TYPE = {
+     ADMIN: '관리자',
+     INSTRUCTOR: '강사',
+     STUDENT: '수강생',
+     UNDEFINED: '해당 없음'
+     };
+     return USER_TYPE[type] ?? USER_TYPE[UNDEFINED];
+    }
+    getUserType('STUDENT'); // 학생
+    ```
+    
   - Object Destructuring <br>
   - Object.freeze <br>
   - Prototype 조작 지양하기 <br>
