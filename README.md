@@ -1084,7 +1084,7 @@ getDates('2022-01-01', '2022-01-06');
 
   - Prototype 조작 지양하기 <br>
        
-   예시)
+    예시) <br>
     ```
     // 기존에 자바스크립트에 내장된 내용을 변경함
     Array.prototype.forEach = function() {
@@ -1125,7 +1125,67 @@ getDates('2022-01-01', '2022-01-06');
     ```
 
   - 직접 접근 지양하기 <br>
+    예시)
+    ```
+    const model = {
+     isLogin: false,
+     isValidToken: false,
+     };
+     
+     // login, logout 모두 객체에 직접 접근하고 있음
+     function login() {
+      model.isLogin = true;
+      model.isValidToken = true;
+      }
+      
+      function logout() {
+       model.isLogin = false;
+       model.isValidToken = false;
+      }
+     
+     someElement.addEventListener('click', login);  
+    ```
+    
+    수정)
+    ```
+    const model = {
+     isLogin: false,
+     isValidToken: false,
+     };
+     
+     // model에 대신 접근
+     function setLogin(bool) {
+      model.isLogin = bool
+      }
+      
+     // model에 대신 접근 
+     function setValidToken(bool) {
+      model.isValidToken = bool
+      }
+      
+     // model에 직접 접근 x
+      function Login() {
+       setLogin(true);
+       setValidToken(true);
+      }
+     
+     // model에 직접 접근 x 
+      function Logout() {
+       setLogin(false);
+       setValidToken(false);
+      }
+     
+     someElement.addEventListener('click', login);  
+    ```
+    
+    결론
+    ```
+    1. 직접 접근 지양하기
+    2. 예측 가능한 코드 작성해서 동작이 예츠 가능한 앱 생성
+    ```
     
   - Optional Chaining <br>
   - Extends & Mixin <br>
  
+8. 함수 
+  - 함수/메서드/생성자 <br>
