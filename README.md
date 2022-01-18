@@ -1032,7 +1032,7 @@ getDates('2022-01-01', '2022-01-06');
     ```
     
   - Object.freeze <br>
-    
+    [참고](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze)
     ```
     const STAUS = Object.freeze{{
      PENDING: 'PENDING',
@@ -1102,6 +1102,28 @@ getDates('2022-01-01', '2022-01-06');
 
   - hasOwnProperty <br>
     
+    ```
+    const person = {
+     name: 'sbshin'
+    }
+    
+    person.hasOwnProperty('name'); // true
+    person.hasOwnProperty('age'); // false
+    ```
+    ![image](https://user-images.githubusercontent.com/26318691/149955453-1b63cfaa-eb58-463d-81a1-866c5f295baf.png)
+    
+    ```
+    const foo = {
+     hasOwnProperty: function() {
+      return 'hasOwnProperty'; 
+     },
+     bar: 'strubg',
+    };
+
+    foo.hasOwnProperty('bar'); // hasOwnProperty
+    Object.prototype.hasOwnProperty.call(foo, 'bar') // true
+    ```
+
   - 직접 접근 지양하기 <br>
     
   - Optional Chaining <br>
