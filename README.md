@@ -988,7 +988,51 @@ getDates('2022-01-01', '2022-01-06');
     Computed Property Name을 활용하여, 불필요한 분기문을 줄일 수 있음.
     
   - Object Destructuring <br>
+    ```
+    function Person(name, age, location) {
+     this.name = name;
+     this.age = age ?? 30;  // 넣지 않는 값에 대해 처리
+     this.location = location ?? 'korea'; // 넣지 않는 값에 대해 처리
+     }
+     
+     const sb = new Person('sb', 30, 'korea);
+    ```
+    
+    ```
+    function Person(name, age, location) {
+     this.name = name;
+     this.age = age;
+     this.location = location;
+     }
+     
+     const sb = new Person({
+     name : 'sb', 
+     age: 30, 
+     location: 'korea'
+     });
+    ```
+    
+    ```
+    const orders = ['First', 'Second', 'Third'];
+    
+    const st = orders[0];
+    const rd = orders[2];
+    
+    const [first, thired] = orders
+    ```
+    
+    ```
+    const orders = ['First', 'Second', 'Third'];
+    const {0: st2, 2: rd2} = orders
+    
+    const st = orders[0];
+    const rd = orders[2];
+    
+    const [st3, , rd3] = orders
+    ```
+    
   - Object.freeze <br>
+    
   - Prototype 조작 지양하기 <br>
   - hasOwnProperty <br>
   - 직접 접근 지양하기 <br>
