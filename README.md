@@ -1033,6 +1033,55 @@ getDates('2022-01-01', '2022-01-06');
     
   - Object.freeze <br>
     
+    ```
+    const STAUS = Object.freeze{{
+     PENDING: 'PENDING',
+     SUCCESS: 'SUCCESS',
+     FAIL: 'FAIL',
+    });
+    
+    STAUS.PENDING = 'P2'
+    console.log(STATUS); // { PENDING : 'PENDING', SUCCESS : 'SUCCESS', FAIL: 'FAIL' }
+    console.log(STAUS.PENDING); // PENDING
+    // 객체가 잘 동결이 되었는 지 확인
+    Object.isFrozen(STATUS) // true
+    Object.isFrozen(STATUS.PENDING) // true
+    ```
+    ```
+    const STAUS = Object.freeze{{
+     PENDING: 'PENDING',
+     SUCCESS: 'SUCCESS',
+     FAIL: 'FAIL',
+     OPTIONS: {
+      GREEN: 'GREEN',
+      RED: 'RED',
+      },
+    });
+    
+    Object.isFrozen(Object.OPTIONS); // true
+    Object.isFrozen(STAUS.OPTIONS); //false
+    
+    STAUS.OPTIONS.GREEN = 'G'
+    STAUS.OPTIONS.YELLOW = 'Y'
+    
+    console.log(STATUS.OPTIONS); // { GREEN: 'G', RED: 'RED' }
+    ```
+    
+    객체의 깊은 영역까지는 freeze가 관여할 수 없음.
+    
+    해결책
+    
+    ```
+    1. 대중적인 유틸 라이브러리
+    2. 직접 deepFreeze 유틸 함수 생성
+       1. 객체를 순회
+       2. 값이 객체인지 확인
+       3. 객체이면 재귀
+       4. 그렇지 않으면 Object.freeze
+    3. 스택오버 플로우
+    4. Typescript에 readonly 속성 사용
+    ```
+
   - Prototype 조작 지양하기 <br>
   - hasOwnProperty <br>
   - 직접 접근 지양하기 <br>
