@@ -1083,8 +1083,27 @@ getDates('2022-01-01', '2022-01-06');
     ```
 
   - Prototype 조작 지양하기 <br>
+       
+   예시)
+    ```
+    // 기존에 자바스크립트에 내장된 내용을 변경함
+    Array.prototype.forEach = function() {
+     return 'hello';
+    }
+    ```
+    
+    결론
+    ```
+    1. 이미 JS는 많이 발전했다.
+      1-1. 직접 만들어서 모듈화
+      1-2. 직접 만든 모듈을 배포 => NPM
+    2. JS 빌트인 객체를 건드리지 말자
+    ```
+
   - hasOwnProperty <br>
+    
   - 직접 접근 지양하기 <br>
+    
   - Optional Chaining <br>
   - Extends & Mixin <br>
  
