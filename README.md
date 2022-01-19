@@ -1237,7 +1237,7 @@ getDates('2022-01-01', '2022-01-06');
     
   - argument & parameter <br>
 
-    (참고)[https://developer.mozilla.org/en-US/docs/Glossary/Parameter] 
+    [참고](https://developer.mozilla.org/en-US/docs/Glossary/Parameter)
     - 함수의 parameter는 함수의 정의 부분에 나열된 이름이다. 
     - 함수의 arguments는 함수에 들어가는 real value이다.
     
