@@ -1327,7 +1327,64 @@ getDates('2022-01-01', '2022-01-06');
     ```
     
   - Default Value <br>
+    
+    ```
+    function createCarousel(options) {
+     options = optins || {};
+     const margin = options.margin || 0;
+     const center = options.center || false;
+     const navElement = options.navElement || 'div';
+     
+     return {
+      margin,
+      center,
+      navElement
+     };
+    }
+    
+    createCarousel(); // { margin = 0, center = false, navElement = 'div' }
+    ```
+    
+    ```
+    function createCarousel({ margin = 0, center = false, navElement = 'div' } = {}) {
+     return {
+      margin,
+      center,
+      navElement
+     };
+    }
+    createCarousel(); // { margin = 0, center = false, navElement = 'div' }
+    ```
+    
+    ```
+    const required = (argName) +> {
+     throw new Error('required is ' + argName);
+    };
+    
+    function createCarousel(
+     items = required('items'),
+     margin = 0,
+     center = false,
+     navElement = 'div'
+    } = {}) {
+     
+     return {
+      margin,
+      center,
+      navElement
+     };
+    }
+    
+    console.log(
+     createCarousel({
+       center: true,
+       navElement: 'ul'
+      });
+     ); // required is items
+    ```
+    
   - Rest Parameters <br>
+    
   - void & return <br>
   - 화살표 함수 <br>
   - Callback Function <br>
