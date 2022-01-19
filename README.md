@@ -1385,6 +1385,50 @@ getDates('2022-01-01', '2022-01-06');
     
   - Rest Parameters <br>
     
+    예시)
+    ```
+    function sumTotal() {
+     Array.isArray(arguments); // false
+     return Array.from(arguments).reduce(
+       (acc, curr) => acc + curr,
+      );
+     }
+     
+     sumTotal(1, 2, 3, 4, 5, 6, 7, 8, 9, 10); // 55
+    ```
+    
+    코드 개선)
+    ```
+    function sumTotal(...args) {
+     Array.isArray(args); // true
+     
+     return args.reduce(
+       (acc, curr) => acc + curr,
+      );
+     }
+     
+     sumTotal(1, 2, 3, 4, 5, 6, 7, 8, 9, 10); // 55
+    ```
+    
+    코드 개선2)
+    ```
+    function sumTotal(
+      initValue,
+      bonusValue,
+      ...args, // * 나머지 매개변수는 가장 마지막에 들어가야 함
+     ) {
+      console.log(initValue); // 100
+      console.log(bonusValue); // 99
+      
+     return args.reduce(
+       (acc, curr) => acc + curr,
+       initValue
+      );
+     }
+     
+     sumTotal(100, 99, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10); // 55
+    ```
+
   - void & return <br>
   - 화살표 함수 <br>
   - Callback Function <br>
