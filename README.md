@@ -1260,6 +1260,72 @@ getDates('2022-01-01', '2022-01-06');
     ```
    
   - 복잡한 인자 관리하기 <br>
+    
+    올바른 코드 예시)
+    ```
+    function toggleDisplay(isToggle) {
+     // ...some code
+    }
+    
+    function sum(sum1, sum2) {
+     // ...some code
+    }
+    
+    function timer(start, stop, end) {
+     // ...some code
+    }
+    
+    function timer(top, right, bottom, left) {
+     // ...some code
+    } 
+    ```
+    
+    개선해야 될 코드 예시)
+    
+    ```
+    function createCar(name, brand, color, type) {
+     return {
+      name,
+      brand,
+      color,
+      type,
+     };
+    }
+    ```
+    
+    개선)
+    
+    ```
+    function createCar(name, { brand, color, type }) {
+     return {
+      name,
+      brand,
+      color,
+      type,
+     };
+    }
+    
+    createCar('차 이름', {
+     type: '타입',
+     color: '블랙',
+     brand: '브랜드'
+    });
+    ```
+    
+    인자 관리하기)
+    
+    ```
+    function createCar(name, { brand, color, type }) {
+     if (!name) {
+      throw new Error('name is a required');
+      }
+      
+     if (!brand) {
+      throw new Error('brand is a required');
+      }
+    }  
+    ```
+    
   - Default Value <br>
   - Rest Parameters <br>
   - void & return <br>
