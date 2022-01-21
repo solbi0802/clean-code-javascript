@@ -1598,9 +1598,10 @@ getDates('2022-01-01', '2022-01-06');
     ```
     
   - Callback Function <br>
-   
-    예시)
 
+    콜백함수는 함수를 다른 함수에 넘겨서 제어권을 위임할 수 있다. <br>
+    
+    예시)
     ```
     function register() {
      const isConfirm = confirm(
@@ -1641,7 +1642,69 @@ getDates('2022-01-01', '2022-01-06');
     ```
 
   - 순수 함수 <br>
-
+    
+    예시)
+    ```
+    // 순수함수가 아닌 예
+    let num1 = 10;
+    let num2 = 20;
+    
+    function impureSum1() {
+     return num1 + num2;
+    }
+    
+    function impureSum2(newNum) {
+     return num1 + newNum;
+    }
+    impureSum1(); // 30
+    impureSum1(); // 30
+    
+    num1 = 30;
+    impureSum1(); // 50 (호출할 때마다 일관적인 값을 뱉어야하는데, 일관성이 없음. 비순수함수)
+    
+    impureSum2(30); //40
+    
+    num1 = 100;
+    
+    impureSum2(30); //130     
+    ```
+    
+    ```
+    // 순수함수로 변경
+    
+    let num1 = 10;
+    let num2 = 20;
+    
+    function pureSum(num1, num2) {
+     return num1 + num2;
+    }
+    
+    pureSum(10, 20); // 30
+    pureSum(130, 100); // 130
+    ```
+    
+    ```
+    const obj = { one: 1 };
+    
+    // 객체,배열은 refrenceType의 값이기때문에, 새롭게 만들어서 반환
+    function changeObj(targetObj) {
+     targetObj.one = 100;
+     
+     return targetObj;
+     }
+     changeObj(obj); // { one : 100 }
+     console.log(obj); // { one : 100 } 
+    ```
+    
+    ```
+    const obj = { one: 1 };
+    function changeObj(targetObj) {
+     return { ...targetObj, one: 100 }; // { one: 1 }
+     }
+     changeObj(obj); // { one : 100 }
+     console.log(obj); // { one : 1 } 
+    ```
+    
   - Closure <br>
     
   - 고차함수 <br>
