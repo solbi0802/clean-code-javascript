@@ -1475,10 +1475,134 @@ getDates('2022-01-01', '2022-01-06');
     ```
     
   - 화살표 함수 <br>
+
+    예시1)
+    ```
+    const user = {
+     name: 'sb',
+     getName: () => {
+      return this.name'
+      },
+     };
+     
+     user.getName(); // undefined (화살표 함수로는 name에 접근 x)
+    ```
+    ```
+    const user = {
+     name: 'sb',
+     getName() {
+      return this.name'
+      },
+     };
+     
+     user.getName(); // sb
+    ```
+    예시2)
+    ```
+    const user = {
+     name: 'sb',
+     getName: () => {
+      return this.name'
+      },
+      newFriends: () => {
+      // call, apply, bind 사용 불가
+       const newFriendList = Array.from(arguments); // arguments 사용 x
+      return this.name + newFriendList;
+      },
+     };
+     // user.newFriends('shin', '신')
+    ```
+    
+    ```
+    // 수정
+    const user = {
+     name: 'sb',
+     getName: () => {
+      return this.name'
+      },
+      newFriends: (...rest) => {
+      return this.name + newFriendList;
+      },
+     };
+     // user.newFriends('shin', '신')
+    ```
+    
+    예시3)
+    ```
+     const Person = (name, city) => {
+      this.name = name;
+      this.city = city;
+      };
+      
+      const person = new Person('sb', 'korea'); // Person is not a constructor 
+     ```
+     
+     ```
+     const Person = (name, city) => {
+      this.name = name;
+      this.city = city;
+      };
+      
+      const person = new Person('sb', 'korea'); // Person is not a constructor 
+     ```
+    
+    예시4)
+    ```
+    class Parent {
+     parentMethod() {
+      console.log('parentMethod');
+     }
+     
+     parentMethodArrow = () => {
+      console.log('parentmethodArrow');
+     }
+     
+     overrideMethod = () {
+      return 'Parent';
+     }
+     
+     // overrideMethod = () => {
+      return 'Parent';
+     }
+     
+    }
+    
+    class Child extends Parent {
+     childMethod() {
+      super.parentMethod(); 
+      // super.parentMethodArrow();
+      }
+      
+      overrideMethod() {
+       return 'Child';
+      }
+    }
+    
+    new Child().childMethod(); // 정상적으로 호출됨
+    //  new Child().childMethod(); 에러 발생!
+    // new Child().overrideMethod(); // Parent 출력
+    ```
+    
+    ```
+    function* gen() {
+     yield () =>  // 사용 불가
+    }
+    ```
+    
+    결론
+    ```
+    1. this 조작법 주의. 화살표 함수는 렉시컬 스코프를 가지므로, 상위의 스코프를 따르게 됨
+    2. arguments 객체 사용 불가.
+    3. 생성자로 사용할 수 없고 오버라이딩할 수 없다.
+    4. yield 키워드 사용 불가
+    ```
     
   - Callback Function <br>
+
   - 순수 함수 <br>
+
   - Closure <br>
+    
   - 고차함수 <br>
     강의 준비중
   - Currying <br>
