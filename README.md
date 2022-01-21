@@ -1430,7 +1430,52 @@ getDates('2022-01-01', '2022-01-06');
     ```
 
   - void & return <br>
+    예시1)
+    ```
+    function handleClick() {
+      return setState(false); // void 함수인데 리턴 값을 지정
+     }
+     
+    function showAlert(message) {
+      return alert(message); // void 함수인데 리턴 값을 지정
+     }
+    ```
+    예시1 수정)
+     ```
+    function handleClick() {
+       setState(false);
+     }
+     
+    function showAlert(message) {
+      alert(message);
+     }
+    ```
+    
+    예시2)
+    ```
+    function testVoidFunc() {
+      const arr = [1, 2];
+      return arr.push(10));
+     }
+    
+    testVoidFunc() // 3 (length 반환)
+    ```
+    
+    예시3)
+    ```
+    // 반환형이 있는 케이스
+     function isAdult(age) {
+      return age > 19;
+     }
+     function getUserName(name) {
+      return '유저 ' + name;
+     }
+     
+     const isFlag = isAdult(10); // false
+    ```
+    
   - 화살표 함수 <br>
+    
   - Callback Function <br>
   - 순수 함수 <br>
   - Closure <br>
