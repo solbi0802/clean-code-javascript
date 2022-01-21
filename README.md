@@ -1598,6 +1598,47 @@ getDates('2022-01-01', '2022-01-06');
     ```
     
   - Callback Function <br>
+   
+    예시)
+
+    ```
+    function register() {
+     const isConfirm = confirm(
+      '회원가입에 성공했습니다.',
+     );
+     
+     if (isConfirm) {
+       redirectUserInfoPage();
+     }
+    }
+    
+    function login() {
+     const isConfirm = alert(
+      '로그인에 성공했습니다.',
+      );
+      
+      if (isConfirm) {
+        redirectIndexPage();
+       }
+     } 
+    ```
+    
+    ```
+    function confirmModal(message, cbFunc) {
+     const isConfirm = confirm(message);
+      if (isConfirm && cbFunc) {
+       cbFunc();
+      }
+    }
+    
+    function register() {
+     confirmModal('회원가입에 성공했습니다.', redirectUserInfoPage);  // 함수를 실행시키지 않고 넘겨야 함(redirectUserInfoPage() => X)
+    }
+    
+    function login() {
+     confirmModal('로그인에 성공했습니다.',redirectIndexPage);
+     } 
+    ```
 
   - 순수 함수 <br>
 
