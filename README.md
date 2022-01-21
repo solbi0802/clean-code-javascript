@@ -1682,7 +1682,7 @@ getDates('2022-01-01', '2022-01-06');
     pureSum(10, 20); // 30
     pureSum(130, 100); // 130
     ```
-    
+    예시2)
     ```
     const obj = { one: 1 };
     
@@ -1706,8 +1706,49 @@ getDates('2022-01-01', '2022-01-06');
     ```
     
   - Closure <br>
+
+    예시1)
+    ```
+    function add(num1) {
+     return function (num2) {
+      return function (calculateFn) {
+       return calculateFn(num1, num2);
+       };
+     };
+    } 
     
+    function sum(num1, num2) {
+     return num1 + num2;
+    }
+    
+    function multiple(num1, num2) {
+     return num1 * num2;
+    }
+    
+    const addOne = add(5)(2);
+    const sumAdd = addOne(sum); // 7
+    const sumMultiple = addOne(multiple); // 10
+    ```
+    
+    예시2)
+    ```
+    const arr = [1, 2, 3, 'A', 'B', 'C'];
+    
+    function isTypeOf(type) {
+     return function (value) {
+      return typeof value === type;
+      };
+    }
+    
+    const isNumber = isTypeOf('number');
+    const isString = isTypeOf('string');
+    
+    arr.filter(isNumber); // [ 1, 2, 3 ]
+    arr.filter(isString); // [ 'A', 'B', 'C' ]
+    ```
+  
   - 고차함수 <br>
     강의 준비중
+
   - Currying <br>
     강의 준비중
